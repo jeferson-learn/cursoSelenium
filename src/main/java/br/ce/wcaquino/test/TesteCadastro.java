@@ -14,7 +14,7 @@ public class TesteCadastro extends BaseTest {
 
 	@Before
 	public void inicializa(){
-		getDriver("chrome").get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		page = new CampoTreinamentoPage();
 	}
 

@@ -16,7 +16,7 @@ public class TesteAlert {
 	
 	@Before
 	public void inicializa(){
-		driver = getDriver("chrome");
+		driver = getDriver();
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		dsl = new DSL();
 	}

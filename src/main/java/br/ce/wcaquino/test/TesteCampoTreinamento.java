@@ -21,7 +21,7 @@ public class TesteCampoTreinamento {
 
 	@Before
 	public void inicializa(){
-		getDriver("chrome").get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		dsl = new DSL();
 	}
 	
@@ -114,12 +114,12 @@ public class TesteCampoTreinamento {
 	
 	@Test
 	public void testJavascript(){
-		JavascriptExecutor js = (JavascriptExecutor) getDriver("chrome");
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 //		js.executeScript("alert('Testando js via selenium')");
 		js.executeScript("document.getElementById('elementosForm:nome').value = 'Escrito via js'");
 		js.executeScript("document.getElementById('elementosForm:sobrenome').type = 'radio'");
 		
-		WebElement element = getDriver("chrome").findElement(By.id("elementosForm:nome"));
+		WebElement element = getDriver().findElement(By.id("elementosForm:nome"));
 		js.executeScript("arguments[0].style.border = arguments[1]", element, "solid 4px red");
 	}
 	

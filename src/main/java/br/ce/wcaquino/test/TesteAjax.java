@@ -18,7 +18,7 @@ public class TesteAjax {
 
 	@Before
 	public void inicializa(){
-		getDriver("chrome").get("https://www.primefaces.org/showcase/ui/ajax/basic.xhtml");
+		getDriver().get("https://www.primefaces.org/showcase/ui/ajax/basic.xhtml");
 		dsl = new DSL();
 	}
 	
@@ -31,7 +31,7 @@ public class TesteAjax {
 	public void testAjax(){
 		dsl.escrever("j_idt85:name", "Teste");
 		dsl.clicarBotao("j_idt85:j_idt88");
-		WebDriverWait wait = new WebDriverWait(getDriver("chrome"), 30);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 30);
 //		wait.until(ExpectedConditions.textToBe(By.id("j_idt85:display"), "Teste"));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("j_idt98")));
 		Assert.assertEquals("Teste", dsl.obterTexto("j_idt85:display"));

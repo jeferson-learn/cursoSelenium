@@ -19,7 +19,7 @@ public class TesteSincronismo {
 
 	@Before
 	public void inicializa(){
-		getDriver("chrome").get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		dsl = new DSL();
 	}
 	
@@ -37,16 +37,16 @@ public class TesteSincronismo {
 	/*** Espera por 10 segundos quando aplicação ainda processo 5 segundos, sobrou depois fazer ***/
 	@Test
 	public void deveUtilizarEsperaImplicita() throws InterruptedException{
-		getDriver("chrome").manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		dsl.clicarBotao("buttonDelay");
 		dsl.escrever("novoCampo", "Deu certo?");
-		getDriver("chrome").manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 	}
 	/*** Espera por 30 segundos quando elemento aparece e nao precisa esperar 30 segundos e pode fazer já ***/
 	@Test
 	public void deveUtilizarEsperaExplicita() throws InterruptedException{
 		dsl.clicarBotao("buttonDelay");
-		WebDriverWait wait = new WebDriverWait(getDriver("chrome"), 30);
+		WebDriverWait wait = new WebDriverWait(getDriver(), 30);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("novoCampo")));
 		dsl.escrever("novoCampo", "Deu certo?");
 	}

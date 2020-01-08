@@ -10,7 +10,8 @@ public class DriverFactory {
 	
 	private DriverFactory() {}
 	
-	public static WebDriver getDriver(String driverName){
+//	public static WebDriver getDriver(String driverName){
+	public static WebDriver getDriver(){
 		if(driver == null) {
 			/*** Ken mini arrumou ***/ 
 //			if(driverName.equalsIgnoreCase("chrome")) {

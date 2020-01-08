@@ -21,7 +21,7 @@ public class BaseTest {
 	
 	@After
 	public void finaliza() throws IOException{
-		TakesScreenshot ss = (TakesScreenshot) getDriver("Chrome");
+		TakesScreenshot ss = (TakesScreenshot) getDriver();
 		File arquivo = ss.getScreenshotAs(OutputType.FILE);
 		FileUtils.copyFile(arquivo, new File("C:\\Users"+File.separator+"jeferson.lopes"+File.separator+"eclipse-workspace"+File.separator+"Curso67"+File.separator+"target"+File.separator+"screenshot"+File.separator+testNome.getMethodName()+".jpg"));
 		
